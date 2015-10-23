@@ -1,5 +1,5 @@
 
-include_directories( ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR} )
 
 configure_file(config.xml.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.xml @ONLY)
 configure_file(qt-config.xml.cmake ${CMAKE_CURRENT_BINARY_DIR}/qt-config.xml @ONLY)
@@ -77,7 +77,7 @@ ENDIF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
 # kde4_add_library(smokeqtcore SHARED ${smokeqtcore_LIB_SRCS})
 add_library(smokeqtcore SHARED ${smokeqtcore_LIB_SRCS})
 
-target_link_libraries(smokeqtcore ${QT_QTCORE_LIBRARY} ${SMOKE_BASE_LIBRARY} )
+target_link_libraries(smokeqtcore Qt5::Core ${SMOKE_BASE_LIBRARY} )
 
 set_target_properties(smokeqtcore PROPERTIES VERSION 3.0.0 SOVERSION 3 )
 

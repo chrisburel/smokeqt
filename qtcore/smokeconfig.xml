@@ -21,6 +21,7 @@
         <signature>.*QLocale::v</signature>
         <signature>.*QByteArrayMatcher::dummy</signature>
         <signature>.*QByteArrayMatcher::p</signature>
+        <signature>.*QMetaType::registerNormalized.*</signature>
         <signature>.*QResource::QResource\(const QResource&amp;\).*</signature>
         <signature>.*QStringMatcher::q_data</signature>
         <signature>.*QStringMatcher::p</signature>
@@ -91,7 +92,6 @@
         <class>QFileInfo</class>
         <class>QFileSystemWatcher</class>
         <class>QFinalState</class>
-        <class>QFlag</class>
         <class>QFSFileEngine</class>
         <class>QFutureInterfaceBase</class>
         <class>QFutureWatcherBase</class>
