@@ -13,7 +13,7 @@
         <!-- Avoid including any functions that start with "q" thar are not
              part of Qt -->
         <signature>.*void quick_exit\(int\).*$</signature>
-        <signature>.*void qsort(_r)?\(void\*, unsigned long, unsigned long.*</signature>
+        <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
         <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
 
         <!-- we don't want private stuff in smoke.. -->
@@ -44,6 +44,16 @@
         <!-- Smoke does not have complete rvalue reference support -->
         <signature>^QSignalBlocker\*.*QSignalBlocker::QSignalBlocker\(QSignalBlocker.*\).*</signature>
         <signature>^QSignalBlocker.*&amp;.*QSignalBlocker::operator=\(QSignalBlocker.*&amp;.*\).*</signature>
+
+        <!-- Ignore Mac types -->
+        <signature>^CGPoint QPointF?::toCGPoint\(\) const$</signature>
+        <signature>^static QPointF? QPointF?::fromCGPoint\(CGPoint\)$</signature>
+        <signature>^CGRect QRectF?::toCGRect\(\) const$</signature>
+        <signature>^static QRectF? QRectF?::fromCGRect\(CGRect\)$</signature>
+        <signature>^CGSize QSizeF?::toCGSize\(\) const$</signature>
+        <signature>^static QSizeF? QSizeF?::fromCGSize\(CGSize\)$</signature>
+        <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
+        <signature>.*(from|to)(Raw)?NS(Data|Date|String|URL|UUID|TimeZone).*</signature>
     </exclude>
     <functions>
         <!-- include functions starting with 'q' -->

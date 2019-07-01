@@ -21,7 +21,7 @@
         <!-- Avoid including any functions that start with "q" thar are not
              part of Qt -->
         <signature>.*void quick_exit\(int\).*$</signature>
-        <signature>.*void qsort(_r)?\(void\*, unsigned long, unsigned long.*</signature>
+        <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
         <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
 
         <!-- we don't want private stuff in smoke.. -->
@@ -36,6 +36,9 @@
 
         <signature>^virtual void QDBusConnectionInterface::connectNotify\(const QMetaMethod&amp;\)$</signature>
         <signature>^virtual void QDBusConnectionInterface::disconnectNotify\(const QMetaMethod&amp;\)$</signature>
+
+        <!-- Ignore Mac types -->
+        <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
    </exclude>
     <functions>
         <!-- include functions starting with 'q' -->
